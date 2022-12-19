@@ -17,6 +17,9 @@ public class AtmMachine {
 
     private List<BankAccount> bankAccounts;
     private BankAccount loadedBankAccount;
+    /**
+     * BiPredicate to test bank account belongs to user
+     */
     private final BiPredicate<User, BankAccount> isUserAllowedToAccessBankAccount = ((user, bankAccount)
             -> user.getRib().equals(bankAccount.getRib()) && user.getPassword().equals(bankAccount.getPassword()));
 
@@ -34,7 +37,8 @@ public class AtmMachine {
 
     /**
      * @param user The user which account should be loaded,
-     *             tests if the user credentials match any of the bank accounts.
+     *             tests if the user credentials match any of the bank accounts
+     *             and initializes the loadedBankAccount field.
      */
     public void verifyAccessAndFindBankAccount(User user) {
         loadedBankAccount = bankAccounts.stream()

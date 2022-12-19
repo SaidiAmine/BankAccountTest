@@ -12,10 +12,11 @@ public class BankAccount {
     private Double balance;
     private final String password;
     private final String rib;
+    private List<Operation> operationsHistory;
+
     // Optional fields
     private Double maxWithdrawal;
     private Double minimumBalance;
-    private List<Operation> operationsHistory;
 
     public BankAccount(BankAccountBuilder builder) {
         this.balance = builder.balance;

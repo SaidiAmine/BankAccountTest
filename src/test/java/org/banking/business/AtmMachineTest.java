@@ -24,7 +24,6 @@ class AtmMachineTest {
 
     @BeforeEach
     void initializeBankAccount() {
-        bankAccount = new BankAccount.BankAccountBuilder(100, "onepwd", "123").build();
         atm = new AtmMachine(BankAccountHelper.initializeBankAccounts());
         user = new User("onepwd", "123", "John Doe");
     }
@@ -32,6 +31,7 @@ class AtmMachineTest {
     @Test
     void should_set_correct_bank_account_default_field_values() {
         // Given
+        bankAccount = new BankAccount.BankAccountBuilder(100, "onepwd", "123").build();
         // When
         // Then
         Assertions.assertEquals(BankAccountHelper.DEFAULT_MAX_WITHDRAWAL, bankAccount.getMaxWithdrawal());
