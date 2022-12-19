@@ -1,5 +1,10 @@
 Bank account management Kata,
 
+* Overview:
+  -
+  - Java project for bank account management, contains standard operations for bank account like withdrawal, deposit, history checkout on operations.
+  - Contains Unit tests on the business layer methods.
+
 * Project structure: 
   - 
   - package model contains the models: BankAccount, User, Operation.
