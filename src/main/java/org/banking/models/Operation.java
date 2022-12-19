@@ -3,7 +3,6 @@ package org.banking.models;
 import org.banking.enums.OperationType;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Operation {
     private OperationType operationType;
@@ -12,8 +11,6 @@ public class Operation {
 
     public Operation() {
         this.timeStamp = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        this.timeStamp.format(formatter);
     }
 
     public OperationType getOperationType() {

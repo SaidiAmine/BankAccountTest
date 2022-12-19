@@ -8,6 +8,10 @@ public class BankAccountHelper {
 
     public static final double DEFAULT_MAX_WITHDRAWAL = 1600.0;
     public static final double DEFAULT_MIN_BALANCE = -100.0;
+
+    /**
+     * @return List of mock bank accounts
+     */
     public static List<BankAccount> initializeBankAccounts() {
         var bankAccount_1 = new BankAccount.BankAccountBuilder(10500.90, "onepwd", "123")
                 .minimumBalance(-200)
