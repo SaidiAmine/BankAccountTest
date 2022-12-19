@@ -34,8 +34,8 @@ class AtmMachineTest {
         // Given
         // When
         // Then
-        Assertions.assertEquals(bankAccount.getMaxWithdrawal(), BankAccountHelper.DEFAULT_MAX_WITHDRAWAL);
-        Assertions.assertEquals(bankAccount.getMinimumBalance(), BankAccountHelper.DEFAULT_MIN_BALANCE);
+        Assertions.assertEquals(BankAccountHelper.DEFAULT_MAX_WITHDRAWAL, bankAccount.getMaxWithdrawal());
+        Assertions.assertEquals(BankAccountHelper.DEFAULT_MIN_BALANCE, bankAccount.getMinimumBalance());
         assertTrue(bankAccount.getOperationsHistory().isEmpty());
     }
 
@@ -89,7 +89,7 @@ class AtmMachineTest {
                     atm.withdraw(601);
                 }
         );
-        assertEquals("You can not withdraw 601,00", exception.getMessage());
+        assertEquals("Your minimum balance is -100,00", exception.getMessage());
     }
 
 
@@ -121,7 +121,7 @@ class AtmMachineTest {
         assertThat(atm.getLoadedBankAccount().getOperationsHistory())
                 .hasSize(2)
                 .extracting("operationType", "amount")
-                .contains(tuple(OperationType.DEPOSIT, 200.0),
+                .containsExactly(tuple(OperationType.DEPOSIT, 200.0), // checks the order
                         tuple(OperationType.WITHDRAWAL, 100.0));
 
     }
